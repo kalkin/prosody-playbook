@@ -20,4 +20,5 @@
 - name: Check the prosody config
   template: src=./prosody.cfg.lua 
             dest=/etc/prosody/prosody.cfg.lua
+            #validate="luac -p /etc/prosody/prosody.cfg.lua"
   notify: Restart Prosody
