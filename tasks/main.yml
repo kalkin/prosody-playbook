@@ -3,7 +3,7 @@
   copy: src=roles/centos/files/epel.repo dest=/etc/yum.repos.d/epel.repo
 - name: Check EPEL GPG key
   copy: src=roles/centos/files/RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
-- name: Ensure Tigase is installed and at the latest version
+- name: Ensure Prosody is installed and at the latest version
   yum: pkg=prosody state=latest
   notify: Restart Prosody
 - name: Open the correct IPTables ports
@@ -18,5 +18,6 @@
   notify: Restart Iptables
 
 - name: Check the prosody config
-  template: src=./prosody.cfg.lua dest=/etc/prosody/prosody.cfg.lua
+  template: src=./prosody.cfg.lua 
+            dest=/etc/prosody/prosody.cfg.lua
   notify: Restart Prosody
