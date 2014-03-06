@@ -41,7 +41,7 @@ modules_enabled = {
 		"private"; -- Private XML storage (for room bookmarks, etc.)
 		"vcard"; -- Allow users to set vCards
 		"privacy"; -- Support privacy lists
-		"compression"; -- Stream compression
+		--"compression"; -- Stream compression
 
 	-- Nice to have
 		"version"; -- Replies to server version requests
@@ -138,10 +138,6 @@ VirtualHost "{{jabber_hostname}}"
 	-- set in the global section (if any).
 	-- Note that old-style SSL on port 5223 only supports one certificate, and will always
 	-- use the global one.
-	ssl = {
-		key = "certs/example.com.key";
-		certificate = "certs/example.com.crt";
-	}
 
 ------ Components ------
 -- You can specify components to add hosts that provide special services,
@@ -149,7 +145,7 @@ VirtualHost "{{jabber_hostname}}"
 -- For more information on components, see http://prosody.im/doc/components
 
 ---Set up a MUC (multi-user chat) room server on conference.example.com:
-Component "conference.example.com" "muc"
+Component "conference.{{jabber_hostname}}" "muc";
 
 -- Set up a SOCKS5 bytestream proxy for server-proxied file transfers:
 --Component "proxy.example.com" "proxy65"
