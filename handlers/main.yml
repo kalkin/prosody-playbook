@@ -2,4 +2,4 @@
 - name: Restart Prosody
   service: name=prosody state=restarted
 - name: Restart Iptables
-  service: name=iptables state=restart
+  service: name=iptables state=restarted
