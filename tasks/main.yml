@@ -13,7 +13,6 @@
               insertafter="^:OUTPUT ACCEPT \[\d*:\d*\]$"
   with_items:
   - { protocol: tcp, port: 5222 }
-  - { protocol: tcp, port: 5223 }
   - { protocol: tcp, port: 5269 }
   notify: Restart Iptables
 
