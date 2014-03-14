@@ -81,6 +81,9 @@ modules_disabled = {
 -- Disable account creation by default, for security
 -- For more information see http://prosody.im/doc/creating_accounts
 allow_registration = true;
+min_seconds_between_registrations = 300;
+
+registration_watchers = { "{{jabber_admin}}" }
 
 -- These are the SSL/TLS-related settings. If you don't want
 -- to use SSL/TLS, you may comment or remove this
