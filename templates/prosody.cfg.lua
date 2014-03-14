@@ -149,7 +149,7 @@ VirtualHost "{{jabber_hostname}}"
 -- For more information on components, see http://prosody.im/doc/components
 
 ---Set up a MUC (multi-user chat) room server on conference.example.com:
-Component "conference.{{jabber_hostname}}" "muc";
+Component "muc.{{jabber_hostname}}" "muc";
 
 -- Set up a SOCKS5 bytestream proxy for server-proxied file transfers:
 --Component "proxy.example.com" "proxy65"
