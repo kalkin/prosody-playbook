@@ -37,6 +37,7 @@ modules_enabled = {
 		"dialback"; -- s2s dialback support
 		"disco"; -- Service discovery
 		"smacks"; -- XMPP Stream Managment
+		"carbons"; -- XMPP Carbons
 
 	-- Not essential, but recommended
 		"private"; -- Private XML storage (for room bookmarks, etc.)

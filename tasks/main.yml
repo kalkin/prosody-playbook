@@ -20,6 +20,10 @@
   copy: src=roles/prosody/files/mod_smacks.lua dest=/usr/lib64/prosody/modules/mod_smacks.lua
   notify: Restart Prosody
 
+- name: Check if XMPP Carbon module is installed
+  copy: src=roles/prosody/files/mod_carbons.lua dest=/usr/lib64/prosody/modules/mod_carbons.lua
+  notify: Restart Prosody
+
 - name: Check the prosody config
   template: src=./prosody.cfg.lua 
             dest=/etc/prosody/prosody.cfg.lua
