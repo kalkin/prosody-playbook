@@ -1,8 +1,8 @@
 ---
-- name: Check EPEL repository definition
-  copy: src=roles/centos/files/epel.repo dest=/etc/yum.repos.d/epel.repo
-- name: Check EPEL GPG key
-  copy: src=roles/centos/files/RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
+- name: Check CentALT repository definition
+  copy: src=roles/prosody/files/centalt.repo dest=/etc/yum.repos.d/centalt.repo
+- name: Check CentALT GPG key
+  copy: src=roles/prosody/files/RPM-GPG-KEY-CentALT dest=/etc/pki/rpm-gpg
 - name: Ensure Prosody is installed and at the latest version
   yum: pkg=prosody state=latest
   notify: Restart Prosody
@@ -13,9 +13,12 @@
               insertafter="^:OUTPUT ACCEPT \[\d*:\d*\]$"
   with_items:
   - { protocol: tcp, port: 5222 }
-  - { protocol: tcp, port: 5223 }
   - { protocol: tcp, port: 5269 }
   notify: Restart Iptables
+
+- name: Check if XMPP Stream Managment plugin is installed
+  copy: src=roles/prosody/files/mod_smacks.lua dest=/usr/lib64/prosody/modules/mod_smacks.lua
+  notify: Restart Prosody
 
 - name: Check the prosody config
   template: src=./prosody.cfg.lua 
