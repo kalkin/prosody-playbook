@@ -16,7 +16,7 @@
   - { protocol: tcp, port: 5269 }
   notify: Restart Iptables
 
-- name: Check if XMPP Stream Managment plugin is installed
+- name: Check if XMPP Stream Managment module is installed
   copy: src=roles/prosody/files/mod_smacks.lua dest=/usr/lib64/prosody/modules/mod_smacks.lua
   notify: Restart Prosody
 
