@@ -1,0 +1,10 @@
+galazy_info:
+  author: kalkin
+  company: Xsrc
+  description: Setups prosody XMPP Jabber server
+  platforms:
+    - name: CentOS
+    - versions:
+      - 6.5
+
+dependencies: ["centos"]
