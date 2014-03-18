@@ -1,8 +1,8 @@
 ---
 - name: Check CentALT repository definition
-  copy: src=roles/prosody/files/centalt.repo dest=/etc/yum.repos.d/centalt.repo
+  copy: src=centalt.repo dest=/etc/yum.repos.d/centalt.repo
 - name: Check CentALT GPG key
-  copy: src=roles/prosody/files/RPM-GPG-KEY-CentALT dest=/etc/pki/rpm-gpg
+  copy: src=RPM-GPG-KEY-CentALT dest=/etc/pki/rpm-gpg
 - name: Ensure Prosody is installed and at the latest version
   yum: pkg=prosody state=latest
   notify: Restart Prosody
@@ -17,11 +17,11 @@
   notify: Restart Iptables
 
 - name: Check if XMPP Stream Managment module is installed
-  copy: src=roles/prosody/files/mod_smacks.lua dest=/usr/lib64/prosody/modules/mod_smacks.lua
+  copy: src=mod_smacks.lua dest=/usr/lib64/prosody/modules/mod_smacks.lua
   notify: Restart Prosody
 
 - name: Check if XMPP Carbon module is installed
-  copy: src=roles/prosody/files/mod_carbons.lua dest=/usr/lib64/prosody/modules/mod_carbons.lua
+  copy: src=mod_carbons.lua dest=/usr/lib64/prosody/modules/mod_carbons.lua
   notify: Restart Prosody
 
 - name: Check the prosody config
