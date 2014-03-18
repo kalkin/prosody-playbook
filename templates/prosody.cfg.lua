@@ -18,7 +18,7 @@
 -- for the server. Note that you must create the accounts separately
 -- (see http://prosody.im/doc/creating_accounts for info)
 -- Example: admins = { "user1@example.com", "user2@example.net" }
-admins = { "{{jabber_admin}}" }
+admins = { "{{prosody_admin}}" }
 
 -- TODO enable libevent?
 -- Enable use of libevent for better performance under high load
@@ -81,10 +81,10 @@ modules_disabled = {
 
 -- Disable account creation by default, for security
 -- For more information see http://prosody.im/doc/creating_accounts
-allow_registration = {{jabber_registration}};
+allow_registration = {{prosody_registration}};
 min_seconds_between_registrations = 300;
 
-registration_watchers = { "{{jabber_admin}}" }
+registration_watchers = { "{{prosody_admin}}" }
 
 -- These are the SSL/TLS-related settings. If you don't want
 -- to use SSL/TLS, you may comment or remove this
@@ -138,7 +138,7 @@ pidfile = "/var/run/prosody/prosody.pid";
 -- You need to add a VirtualHost entry for each domain you wish Prosody to serve.
 -- Settings under each VirtualHost entry apply *only* to that host.
 
-VirtualHost "{{jabber_hostname}}"
+VirtualHost "{{prosody_hostname}}"
 	-- Assign this host a certificate for TLS, otherwise it would use the one
 	-- set in the global section (if any).
 	-- Note that old-style SSL on port 5223 only supports one certificate, and will always
@@ -150,7 +150,7 @@ VirtualHost "{{jabber_hostname}}"
 -- For more information on components, see http://prosody.im/doc/components
 
 ---Set up a MUC (multi-user chat) room server on conference.example.com:
-Component "muc.{{jabber_hostname}}" "muc";
+Component "muc.{{prosody_hostname}}" "muc";
 
 -- Set up a SOCKS5 bytestream proxy for server-proxied file transfers:
 --Component "proxy.example.com" "proxy65"

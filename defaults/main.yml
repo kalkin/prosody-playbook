@@ -1,4 +1,4 @@
 ---
-jabber_hostname: "{{ansible_hostname}}"
-jabber_admin: admin@"{{ansible_hostname}}"
-jabber_registration: "true"
+prosody_hostname: "{{ansible_hostname}}"
+prosody_admin: admin@"{{ansible_hostname}}"
+prosody_registration: "true"
