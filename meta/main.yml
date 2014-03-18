@@ -1,10 +1,13 @@
-galazy_info:
+---
+galaxy_info:
   author: kalkin
   company: Xsrc
   description: Setups prosody XMPP Jabber server
   platforms:
-    - name: CentOS
+    - name: EL6
     - versions:
-      - 6.5
+      - 6
+  categories:
+    - networking
 
-dependencies: ["centos"]
+dependencies: ["epel"]

@@ -1,22 +1,25 @@
-# Prosody Playbook
+#Prosody
 
-## Introduction
-This [Ansible Role](http://docs.ansible.com) setups
-[Prosody](https://prosody.im)
+
+## Goal
+
+The goal of this role is to simplify jabber server deployment for private needs.
 
 ## Requirements
 
-A fresh installed Centos (6.5) with root access and functioning ssh public key
-login (see `ssh-copy-id`).
+Installed elpa sources
 
-## How to use it
+## Role Variables
+- `prosody_hostname` Hostname to listen to. Default `{{ ansible_hostname }}`
+- `prosody_registration` Default true You are running an jabber server, for your
+  private needs? Why not to share it with others?
+- `prosody_admin`: Default to `admin@"{{ansible_hostname}}"`. The role DOES NOT
+  create the admin user. You can use prosodyctl command or a jabber client for
+  this (if you enabled `prosody_registration`).
 
-In the root of your playbook do:
-```bash
-git clone https://github.com/xsrc/prosody roles/prosody
-```
 
-Now you just have to add your hosts in your inventory to the `prosody` group
+## Dependencies
+EPEL Repositories 
 
 ## Author
-Bahtiar `kalkin` Gadimov
+kalkin https://github.com/xsrc/
