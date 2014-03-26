@@ -63,13 +63,11 @@ local function message_handler(event, c2s)
 	end
 
 	if stanza:get_child("private", xmlns_carbons) then
-		if not c2s then
-			stanza:maptags(function(tag)
-				if not ( tag.attr.xmlns == xmlns_carbons and tag.name == "private" ) then
-					return tag;
-				end
-			end);
-		end
+        stanza:maptags(function(tag)
+            if not ( tag.attr.xmlns == xmlns_carbons and tag.name == "private" ) then
+                return tag;
+            end
+        end);
 		module:log("debug", "Message tagged private, ignoring");
 		return
 	elseif stanza:get_child("no-copy", "urn:xmpp:hints") then
