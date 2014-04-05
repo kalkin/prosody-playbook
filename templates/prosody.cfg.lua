@@ -43,7 +43,7 @@ modules_enabled = {
 		"private"; -- Private XML storage (for room bookmarks, etc.)
 		"vcard"; -- Allow users to set vCards
 		"privacy"; -- Support privacy lists
-		--"compression"; -- Stream compression
+		"compression"; -- Stream compression
 
 	-- Nice to have
 		"version"; -- Replies to server version requests
